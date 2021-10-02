@@ -2,6 +2,9 @@
 
 Huffman Coding Algorithm implemented in Python
 
+## Demo
+![Demo](images/HuffmanCoding.png)
+
 ## Resources
 
 - https://en.wikipedia.org/wiki/Huffman_coding
