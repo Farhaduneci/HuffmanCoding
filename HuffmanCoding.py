@@ -1,5 +1,6 @@
 from queue import PriorityQueue
 import json
+import argparse
 
 
 class Node:
@@ -93,3 +94,21 @@ def decode(encodedData, huffmanTree):
             currentNode = huffmanTree
 
     return decodedData
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(
+        description="HuffmanCoding algorithm implementation capabl of encoding and also decoding huffman code.")
+    parser.add_argument("text", help="Input text to be encoded.")
+    parser.add_argument("-d", "--decode", help="Enables decoding algorithm to run",
+                        dest="decode", action="store_true")
+
+    args = parser.parse_args()
+
+    encoded = encode(args.text)
+    print("Encoded: " + encoded[0])
+    print("\nASCII: " + str(len(args.text)*7) +
+          " bit, HUFFMAN: " + str(len(encoded[0])) + " bit.")
+    if args.decode:
+        print("\nDecoded: " + decode(encoded[0], encoded[1]))
