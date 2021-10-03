@@ -17,6 +17,9 @@ class Node:
         # right node
         self.right = right
 
+    def hasNoChildren(self):
+        return self.left == None and self.right == None
+
     def __repr__(self):
         return self.symbol.upper() + str(self.freq)
 
@@ -89,7 +92,7 @@ def decode(encodedData, huffmanTree):
 
     for bit in encodedData:
         currentNode = currentNode.right if int(bit) == 1 else currentNode.left
-        if currentNode.left == None and currentNode.right == None:
+        if currentNode.hasNoChildren():
             decodedData += currentNode.symbol
             currentNode = huffmanTree
 
