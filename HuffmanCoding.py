@@ -67,8 +67,7 @@ def encode(data):
         left, right = nodes.get(), nodes.get()
 
         # combine the 2 smallest nodes to create new node
-        nodes.put(Node(left.symbol + right.symbol,
-                       left.freq + right.freq, left, right))
+        nodes.put(Node(left.symbol + right.symbol, left.freq + right.freq, left, right))
 
     # extract huffman tree from priority queue
     huffmanTree = nodes.get()
@@ -112,6 +111,6 @@ if __name__ == "__main__":
     encoded = encode(args.text)
     print("Encoded: " + encoded[0])
     print("\nASCII: " + str(len(args.text)*7) +
-          " bit, HUFFMAN: " + str(len(encoded[0])) + " bit.")
+        " bit, HUFFMAN: " + str(len(encoded[0])) + " bit.")
     if args.decode:
         print("\nDecoded: " + decode(encoded[0], encoded[1]))
